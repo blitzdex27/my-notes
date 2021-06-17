@@ -33,7 +33,8 @@
 
 -----------------------------------------------------------
 # Setup credential store
-
+Author: Me (Reference issue: https://github.com/docker/docker-credential-helpers/issues/102)
+	
 From your terminal, you can start anywhere even in your $HOME directory (Ctrl + Alt + T): 
 1. Download, extract, make executable, and move to make it available to $PATH
     ```bash
