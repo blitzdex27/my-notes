@@ -1,23 +1,24 @@
-> Build container
+# Docker basics
+* Build container
     ```bash
     $ docker build -t <name-you-want> .
     ```
-> Run container
+* Run container
     ```bash
     $ docker run -dp <your-port>:<port-needed-by-app-inside> <container-name>
     ```
     * `-d` ==> detached mode - run container in background
     * `-p` ==> port mapping - define the port the container will be able to use in your system when the app in container requested to access a port
 
-> See docker running process
+* See docker running process
 	```bash
 	$ docker ps
 	```
-> Stop container
+* Stop container
     ```bash
     $ docker stop <container-id>
     ```
-> Remove container
+* Remove container
     ```bash
     $ docker rm <container-id>
     or
@@ -25,7 +26,7 @@
     ```
     -f ==> forced removal - remove container even if it is currently running
 
-> Login/logout
+* Login/logout
     ```bash
     $ docker login
 	$ docker logout
