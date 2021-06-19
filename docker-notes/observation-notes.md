@@ -1,6 +1,6 @@
 # Observation notes
 
-## [obs-001-2021] Building a container
+## [obs-001-20210619] Building a container
 
 **Observation**
 
@@ -37,36 +37,38 @@ When a container is built.
 
 * hp1-t1-r1: A list of docker images showed up including major dependencies like node.
 
-* hp2-t1-r1:
+* hp2-t1-r1: Nothing changed.
 
-* hp2-t2-r1:
+* hp2-t2-r1: Nothing changed.
 
 **Conclusion**
 
 Instead of a container, an image will be created upon building. The following is the actual process.
 
 1. Build 
-> `sudo docker build -t getting-started`
+    > `sudo docker build -t getting-started`
 
 2. The image will be built
 
-> `sudo docker image ls`
+    > `sudo docker image ls`
 
-or 
+    or 
 
-> `sudo docker images`
+    > `sudo docker images`
 
 3. Run the image
 
-> `sudo docker run -dp 3000:3000 getting-started`
+    > `sudo docker run -dp 3000:3000 getting-started`
 
 4. The image will be included in the docker process
 
-> `sudo docker ps`
+    > `sudo docker ps`
 
-5. The container of that image will be created upon running.
+5. The container of that image will be created upon running. *Maybe for easy targetting*
 
-> `sudo docker container ls`
+    > `sudo docker container ls`
 
 
 It seems the container contains all required images and dependencies to run the target image, and that image is also inside that container.
+
+    However, there is this one question. Where is the `getting-started` stored after building, enough for it to be called just by its name?
