@@ -41,6 +41,17 @@ or
    ```
 3. Create files with `.ts` extensions instead of `.js`. The `.js` files will be created automatically.
 4. On the terminal, enter the following and you are ready to go:
-   ```bash
-   tsc -w
-   ```
+
+   For specific file:
+
+   > tsc index.ts
+
+   For all files:
+
+   > tsc
+
+   To watch the file/files for changes:
+
+   > tsc index.ts -w
+
+   > tsc -w
