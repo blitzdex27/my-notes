@@ -2,12 +2,16 @@
 
 ## Interfaces
 
-TL;DR:
+**TL;DR:**
+
+Interface acts as a contract that describes the data and the behaviors that the object exposes for others to interact with
 
 - _Required_ if prop is defined
 - _Not Required_ if prop has `?` at the end.
 
-**Defining**
+### Defining custom types with interfaces
+
+Defining:
 
 ```TypeScript
 interface MyCustomType {
@@ -19,7 +23,7 @@ interface MyCustomType {
 
 Note: `prop3` is an optional property.
 
-**Assigning**
+Assigning:
 
 ```TypeScript
 const x: myCustomType = {
@@ -37,7 +41,27 @@ const x = <myCustomType>{
 }
 ```
 
-### Anonymous type
+### Using interfaces to describe functions
+
+Defining:
+
+```typescript
+interface jQuery {
+  (selector: string): HTMLElement;
+  version: number;
+}
+```
+
+Assigning:
+
+```typescript
+let $ = <jQuery>function (selector) {
+  // DOM element
+};
+$.version = 1.12;
+```
+
+### Anonymous type declaration
 
 ```TypeScript
 const toDo: { name:string }
