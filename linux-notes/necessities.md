@@ -6,6 +6,10 @@
 
 > `sudo apt install nodejs`
 
+**NPM**
+
+> `sudo apt install npm`
+
 **VS Code**
 
 > `https://code.visualstudio.com/download`
