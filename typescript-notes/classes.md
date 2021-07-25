@@ -74,3 +74,15 @@ const user2 = new Admin('Ramos')
 
 console.log(Admin.userCount)
 ```
+
+## Controlling visibility with access modifiers
+
+* `private` - properties and methods shall only be accessed within the class.
+
+* `protected` - same with `private` but it scan be accessed by other classes who inherit its class.
+
+* `public` - default JS object fields behavior.
+
+JS does not support `private` members but developers use a workaround using `_`.
+
+This will be added into the name (e.g. `this._name = name`). With this, it won't be included in the autocomplete features. But it can still be accessed.
