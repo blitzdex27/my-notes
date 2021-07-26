@@ -22,3 +22,10 @@
 **Docker**
 
 > `https://docs.docker.com/engine/install`
+
+
+## Miscellaneous
+
+**tree**
+
+> `sudo apt-get install tree`
