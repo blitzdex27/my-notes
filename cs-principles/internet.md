@@ -140,6 +140,151 @@ Subdomain functions:
 
   It defines a specific IP address for that server.
 
-  A domain name can have multiple sudomain
+  A domain name can have multiple sudomains like dev, prod, or beta. All of which are pointing to different IP addresses.
 
--
+#### DNS Records
+
+Subdomains can also be very misleading. That's because the information that is stored about them in a DNS may redirect to completely different servers.
+
+In a DNS there are _records_, called **A** records and **CNAME** records. They store rules for how domains are translated to IP addresses.
+
+##### A record (Address record)
+
+A record that holds the IP address of a specific domain.
+
+##### CNAME (Canonical name record)
+
+A record that holds the list of domain name that is requested, and then what URL name that should be redirected to.
+
+> For instance, if we have `dev.example.com - 123.4567.89` on DNS `A record`, and we have defined `test.example.com` to be redirected to `dev.example.com` in `CNAME record` on DNS, then when a user enter `test.example.com` in their browser, they will be redirected to `dev.example.com`.
+
+On same DNS, a CNAME record can be added.
+
+With the use of `A` and `CNAME` records in DNS, IP mappings can be created to resolve URLs to their specific web server IP address.
+
+### HTTP and requests
+
+#### Hypertext Transfer Protocol (HTTP)
+
+When you are working with a web browser, you are sending a web server a request for information. And then you get a response back from the server, with the information your browser needs to display information on the screen.
+
+This communication, back and forth b is called HTTP
+
+HTTP request and communication take place on top of TCP/IP protocol.
+
+You can think of HTTP as a specific language that communicate on the same network as other languages.
+
+A web server needs something that listens to requests. Those requests are in the format of an HTTP request.
+
+**Client request process**
+
+- browser finds the IP address of the server through DNS
+- browser sends the HTTP request using packets to the requested IP address
+
+**Server**
+
+- listening to possible requests coming from the internet
+
+**Daemon**
+
+- a special type of program required to listen and respond to requests
+- runs on a server and works in the background
+- doesn't require any interaction from the user at all
+- daemon for most web servers is called the HTTPD program or HTTP daemon
+
+**HTTP Requests**
+
+`GET` - asks the server to return back information in the form of a header, or information that describes a configuration and the body
+
+Process:
+
+- GET request is sent for a particular webpage
+- server daemon (HTTPD) hears the request for a specific page like index.html on `www.dougwinnie.com` host.
+- when server finds the resource, it then sends information back, called **_response_** using two sections:
+
+  - **header** - contains information about the data that is being sent back:
+    - type of server
+    - the current date,
+    - language, and the
+    - response code (defines if get request is successful or not)
+  - **body** - contains the content of the document you asked for, which usually is an HTML
+
+`POST` - works in the opposite direction, where instead of getting information from a server, you are sending information for it to use.
+
+### Remembering requests with cookies
+
+Each time you open the browser andopen a web page, it is a unique request.
+
+When you make a new request after you shutdown the browser, the configurations the browser remembered are forgotten.
+
+The time that you're on a site is called a session. A you do things during that session, there are things you can do to configure the site. But when the browser shut down, the session is over and the information is lost.
+
+Cookies enables servers to remember you and your preferences.
+
+#### Three ways that a cookie can be used with a web site
+
+- Determine if a web site visitor is new to the site, or is a returning visitor
+- Personalize content or save basic configuration information of a website
+- Link items in a database, like a shopping cart, with a unique visitor through an identification code
+
+### Securing requests with SSL and TLS
+
+Whenever you send information over the internet, by default, it is publicly visible.
+
+The Internet and the servers within it can see the information you are sending and receiving from various systems.
+
+If binary is the primary way we communicate on the Internet, we need a way for both ends to be able to scramble and unscramble the original message. In such a way that they can sent it, and if someone accesses it along the way, they can't do anything with scrambled message.
+
+The primary way to do this is through SSL and TLS
+
+#### Secure Sockets Layer (SSL)
+
+SSL is an early version of security that was created by Netscape and is now part of the overall system security of TLS today.
+
+#### Transport Layer Security (TLS)
+
+When you are working with a web browser and are using TLS, you will see a lock icon in the browser window, or you will see https instead of http.
+
+TLS performs a few basic things:
+
+- Handshaking
+
+  > When you shake hands, both hands need to reach out and grasp the other, so the greeting is verified by both sides.
+  >
+  > - Creates and verifies connection from the client to the server
+  > - Creates and verifies connection from the server to the client
+
+- Encryption
+
+  > After handshaking, TLS then encrypts the data that is being sent in both directions.
+  >
+  > When it encrypts the message, it is still able to preserve the header of the packets that will be used to transport the data since this all still needs to work on the TCP/IP protocol.
+
+- Authentication
+
+  > Authentication is done using a security certificate.
+  > A certificate is granted by a known security entity that verifies that the companies, servers, and networks are who they say they are.
+  > In that certificate, it defines:
+  >
+  > - domain name, that is allowed to use the certificate
+  > - public key, that is used to encrypt the message
+  > - owner
+  > - issue date
+  > - expiration date
+  >
+  > Using this information, you're able to trust the certificate and send private information confidently between your computer and a server on the internet.
+
+## Encryption
+
+Data being sent or received that use TCP/IP are exposed in the internet and can be read and intercepted by others.
+
+### Caesar's cypher and keys
+
+Moving characters by number of steps
+
+### Improving security with longer keys
+
+### Symmetric and asymmetric keys
+
+**Symmetric keys** - a security key is sent to the receiver to decrypt the message. this is unsecure as hackers can sniff to this key and crack your message.
+**Asymmetric keys** - a security key already exists between the two parties. the sender has the key for sending, and the receipient has a key for receiving for the other party. the sender key is sent together with the message.
