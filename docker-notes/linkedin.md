@@ -141,7 +141,7 @@ Server:
 Client 1:
 
 > For Windows/Mac, enter: `docker run -ti --rm ubuntu:14.04 bash`
-> For Linux, enter: `docker run -ti --rm --add-host=host.docker.internal ubuntu:14.04 bash`
+> For Linux, enter: `docker run -ti --rm --add-host=host.docker.internal:host-gateway ubuntu:14.04 bash`
 >
 > For Windows enter: `nc 192.168.56.1 45678`
 > For Mac/Linux enter: `nc host.docker.internal 45678`
@@ -149,7 +149,7 @@ Client 1:
 Client 2:
 
 > For Windows/Mac enter: `docker run -ti --rm ubuntu:14.04 bash`
-> For Linux: `docker run -ti --rm --add-host=host.docker.internal ubuntu:14.04 bash`
+> For Linux: `docker run -ti --rm --add-host=host.docker.internal:host-gateway ubuntu:14.04 bash`
 >
 > For Windows enter: `nc 192.168.56.1 45679`
 > For Mac/Linux enter: `nc host.docker.internal 45679`
