@@ -1,11 +1,11 @@
-### Using terminal interactive
+## Using terminal interactive
 
 > docker run -ti ubuntu:latest bash
 
     - `t` stands for terminal
     - `i` stands for interactive
 
-### Show stopped containers
+## Show stopped containers
 
 Show all containers including running and stopped
 
@@ -15,7 +15,7 @@ Show last stopped container
 
 > docker ps -l
 
-### Docker commit flow
+## Docker commit flow
 
 Run the image. When image is set to runs, a container will be created for that image.
 
@@ -115,7 +115,7 @@ Remove using `docker rm CONTAINER`
 - Don't let your containers fetch dependencies when they start. When the package is removed from NPM repository, your container will become unstable. So include the dependencies inside the container.
 - Don't leave important things in unnamed stopped containers. You may accidentally delete the container when your memory is full.
 
-### Exposing ports
+## Exposing ports
 
 **Container Networking**
 
@@ -155,3 +155,67 @@ Client 2:
 > For Mac/Linux enter: `nc host.docker.internal 45679`
 
 Then on the client 1 bash shell enter any words. The words will be sent to client 2 shell.
+
+**Dynamically expose ports**
+
+Docker will assign an outside port automatically when you did not specify it.
+
+> `docker run -ti --rm --name echo-server -p 45678 -p 45679 ubuntu:14.04 bash`
+
+To check the port exposed:
+
+> `docker port CONTAINER`
+
+**Exposing UDP ports**
+
+Syntax
+
+> `docker run -p outside-port:inside-port/protocol(TCP/UDP)`
+
+Sample
+
+> `docker run -p 1234:1234/udp
+
+## Container Networking
+
+Previously, when we want a container to connect to other container, we first need to expose it outside (to the host port) then the other container can connect to it using host.docker.internal.
+
+However, there is more efficient way.
+
+### Connecting directly between containers
+
+We can connect docker containers' network without exposing it outside.
+
+#### Existing network by default
+
+> `docker network ls`
+
+Through the command above, you will see network names called `bridge`, `host`, and `none`.
+
+- `bridge` is the network used by containers that don't specify a preference to be put into any other network.
+- `host` is when you want a container to not have any network isolation at all
+- `none` is for when a container should have no networking
+
+#### Create a network
+
+To create a network called `learning`
+
+> `docker network create learning`
+
+#### Putting machines into `learning` network
+
+Run the container in interactive terminal, attached to `learning` network, named catserver, and remove the container on exit.
+
+> `docker run --rm -ti --net learning --name catserver ubuntu:14.04 bash`
+
+#### Connect a container onto the other docker network
+
+Containers can connect to multiple networks
+
+Syntax
+
+> `docker network connect NETWORK_NAME CONTAINER`
+
+Sample
+
+> `docker network connect catsonly catserver`
