@@ -2,13 +2,21 @@
 
 ## Programming
 
-**Node.js**
 
-> `sudo apt install nodejs`
+**GIT**
+> `sudo apt-get install git`
 
 **NPM**
 
 > `sudo apt install npm`
+> `sudo npm install -g npm`
+
+**Node.js**
+
+<!-- > `sudo apt install nodejs` -->
+> `npm cache clean -f`
+> `sudo npm install -g n`
+> `sudo n stable`
 
 **VS Code**
 
@@ -29,3 +37,4 @@
 **tree**
 
 > `sudo apt-get install tree`
+
