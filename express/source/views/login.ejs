@@ -1,0 +1,58 @@
+<%- include('partials/header'); -%>
+
+<form>
+  <h2>Log in</h2>
+  <label for="email">Email</label>
+  <input type="text" name="email" required />
+  <div class="email error"></div>
+  <label for="password">Email</label>
+  <input type="password" name="password" required />
+  <div class="password error"></div>
+  <button>Log in</button>
+</form>
+
+<script>
+  const form = document.querySelector("form");
+  const emailError = document.querySelector(".email.error");
+  const passwordError = document.querySelector(".password.error");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // get the values
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // clear
+    emailError.textContent = "";
+    passwordError.innerText = "";
+
+    try {
+      const response = await fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+
+      console.log(data);
+
+      if (data.errors) {
+        const errors = data.errors;
+        emailError.textContent = errors.email ? errors.email : "";
+        passwordError.innerText = errors.password ? errors.password : "";
+      } else {
+        emailError.innerText = "";
+        passwordError.textContent = "";
+        location.assign("/");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  });
+</script>
+
+<%- include('partials/footer'); -%>

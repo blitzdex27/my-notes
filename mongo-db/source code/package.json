@@ -1,0 +1,16 @@
+{
+  "name": "net-ninja",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^9.0.3",
+    "mongoose": "^5.13.5"
+  }
+}
