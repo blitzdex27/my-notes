@@ -1,42 +1,35 @@
 /**
- * starting from the first element to the end, select the least value element (for ascending)
- * put that element as the first element
- * next, do the same starting from the second element
- * then put the resulting element as the second element
- * @param {array} arr
+ *
+ * @param {unsorted array} arr
+ * @returns sorted array
+ * Selection sort
+ * The array will be divided into two parts, sorted and unsorted. The unsorted part will be searched for the least value and place it at the beginning of the unsorted part, from which will become part of the sorted part.
+ * 1. Divide the array into sorted and unsorted part
+ * 2. Search the least value within the unsorted array
+ * 3. Put the least value into the beginning of the unsorted array
+ * 4. That value will now be part of the sorted array
+ *
  */
-const selectionSort = (arr) => {
-  const arra = arr.map((e) => e);
-  let loopCounter = 0;
-
-  for (let i = 0; i < arra.length; i++) {
-    loopCounter++;
-
-    // 1. find least element:
-    //    > save the element to be replaced later first
-    let toReplace = arra[i];
-
-    //    > find the least one
-    // let least = arra[i];
-    for (let j = i; j < arra.length - 1; j++) {
-      loopCounter++;
-      const num1 = arra[j];
-      const num2 = arra[j + 1];
-
-      if (num1 < num2) {
-        arra[j + 1] = num1;
-        arra[j] = num2;
-        if (j === i) {
-          toReplace = arra[j];
-        }
-      }
-      if (arra.length - 1 === j + 1) {
-        arra[i] = arra[j + 1];
-        arra[j + 1] = toReplace;
+function selectionSort(arr) {
+  const arrA = arr.map((e) => e); // create new copy of given array
+  let loopCount = 0;
+  for (let i = 0; i < arr.length; i++) {
+    loopCount++;
+    let min = arrA[i];
+    let minIndex = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      loopCount++;
+      if (min > arrA[j]) {
+        min = arrA[j];
+        minIndex = j;
       }
     }
+    const temp = arrA[i];
+    arrA[i] = min;
+    arrA[minIndex] = temp;
   }
-  return [arra, loopCounter];
-};
+
+  return [arrA, loopCount];
+}
 
 module.exports = selectionSort;

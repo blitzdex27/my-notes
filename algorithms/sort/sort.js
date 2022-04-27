@@ -1,12 +1,12 @@
-const { insertionSort, selectionSort } = require("./sortAlgorithms");
+const { insertionSort, selectionSort } = require('./sortAlgorithms');
 const {
   insertionSort: inSortMyOwn,
   sorter1,
   sorter2,
-} = require("./sortAlgorithms/myOwn");
-const { wrapper, timer, createArray } = require("./lib");
+} = require('./sortAlgorithms/myOwn');
+const { wrapper, timer, createArray } = require('./lib');
 
-const arr = createArray(1000, 100);
+const arr = createArray(10000, 1000);
 
 (async function () {
   // wraps
@@ -25,6 +25,6 @@ const arr = createArray(1000, 100);
   } = await timer(insertionSortWrapped(arr));
 
   // display
-  console.log("Selection sort:", loops1, p1);
-  console.log("Insertion sort:", loops2, p2);
+  console.log('Selection sort:', loops1, p1);
+  console.log('Insertion sort:', loops2, p2);
 })();
