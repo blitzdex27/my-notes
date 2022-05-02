@@ -1,4 +1,8 @@
-const { insertionSort, selectionSort } = require('./sortAlgorithms');
+const {
+  insertionSort,
+  selectionSort,
+  bubbleSort,
+} = require('./sortAlgorithms');
 const {
   insertionSort: inSortMyOwn,
   sorter1,
@@ -13,6 +17,7 @@ const arr = createArray(10000, 1000);
 
   const selectionSortWrapped = wrapper(selectionSort);
   const insertionSortWrapped = wrapper(insertionSort);
+  const bubbleSortWrapped = wrapper(bubbleSort);
 
   // sort
   const {
@@ -23,8 +28,13 @@ const arr = createArray(10000, 1000);
     value: [sorted2, loops2],
     performance: p2,
   } = await timer(insertionSortWrapped(arr));
+  const {
+    value: [sorted3, loops3],
+    performance: p3,
+  } = await timer(bubbleSortWrapped(arr));
 
   // display
   console.log('Selection sort:', loops1, p1);
   console.log('Insertion sort:', loops2, p2);
+  console.log('Bubble sort:', loops3, p3)
 })();
