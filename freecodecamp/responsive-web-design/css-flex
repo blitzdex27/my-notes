@@ -1,0 +1,75 @@
+# CSS Flexbox
+
+- `display: flex;`, allows you to use other flex properties to build a responsive page
+  - turns it into a flex container
+
+```css
+<style>
+  #box-container {
+    height: 500px;
+    display: flex;
+  }
+
+  #box-1 {
+    background-color: dodgerblue;
+    width: 50%;
+    height: 50%;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 50%;
+    height: 50%;
+  }
+</style>
+```
+
+- `flex-direction: row`
+
+  - it is possible to align any children of a flex element into rows or columns. You do this by adding the `flex-direction` property to the parent item and setting it to `row` or `column`.
+  - other options: `row-reverse`, `column-reverse`
+
+- `justify-content: center;`, aligns elements along the main axis
+
+  - `center` aligns all the flex items to the center inside the flex container
+  - `flex-start` aligns items to the start of the flex container (default)
+  - `flex-end` aligns items to the end of the flex container. For a row, this pushes the items to the right of the container. For a column, this pushes the items to the bottom of the container.
+  - `space-between` aligns items to the center of the main axis, with extra space placed between the items. The first and last items are pushed to the very edge of the flex container
+  - `space-evenly` Distributes space evenly between the flex items with a full space at either end of the flex container.
+
+- `align-items: center`, align elements along the cross axis
+
+  - flex-start: aligns items to the start of the flex container
+  - flex-end: aligns items to the end of the flex container.
+  - center: align items to the center.
+  - stretch: stretch the items to fill the flex container. For example, rows items are stretched to fill the flex container top-to-bottom. This is the **default** value if no `align-items` value is specified.
+  - baseline: align items to their baselines. Baseline is a text concept, think of it as the line that the letters sit on.
+
+- `flex-wrap: wrap` property tells CSS to wrap items
+
+  - nowrap: this is the default setting, and does not wrap items.
+  - wrap: wraps items onto multiple lines from top-to-bottom if they are in rows and left-to-right if they are in columns.
+  - wrap-reverse: wraps items onto multiple lines from bottom-to-top if they are in rows and right-to-left if they are in columns.
+
+- `flex-shrink: 1` allows an item to shrink if the flex container is too small
+
+  - The flex-shrink property takes numbers as values. The higher the number, the more it will shrink compared to the other items in the container. For example, if one item has a flex-shrink value of 1 and the other has a flex-shrink value of 3, the one with the value of 3 will shrink three times as much as the other.
+
+- `flex-grow: 1` controls the size of items when the parent container expands
+
+  - if one item has a flex-grow value of 1 and the other has a flex-grow value of 3, the one with the value of 3 will grow three times as much as the other.
+
+- `flex-basis` property specifies the initial size of the item before CSS makes adjustments with flex-shrink or flex-grow.
+
+  - The units used by the flex-basis property are the same as other size properties (px, em, %, etc.). The value auto sizes items based on the content.
+
+- `flex` is a shortcut available to set several flex properties at once. The `flex-grow`, `flex-shrink`, and `flex-basis` properties can all be set together by using the `flex` property.
+
+  - The default property settings are `flex: 0 1 auto;`
+
+- `order` property is used to tell CSS the order of how flex items appear in the flex container
+  - By default, items will appear in the same order they come in the source HTML
+  - The property takes numbers as values, and negative numbers can be used
+- `align-self` allows you to adjust each item's alignment individually, instead of setting them all at once.
+  - This is useful since other common adjustment techniques using the CSS properties float, clear, and vertical-align do not work on flex items
+  - `align-self` accepts the same values as `align-items` and will override any value set by the `align-items` property.
