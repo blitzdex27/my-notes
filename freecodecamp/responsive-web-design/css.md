@@ -138,3 +138,8 @@ From highest to lowest
 
 - `::before` refers to the first child of the element
 - `::after` refers to the last child of the element
+
+#### image
+
+- `object-fit: cover` maintains the original aspect ratio while only displaying the area defined (height and width)
+

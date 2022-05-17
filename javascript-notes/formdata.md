@@ -28,7 +28,7 @@ const form = document.querySelector('form');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-
+s
   let data = {};
   data.name = e.target.name.value;
   data.age = e.target.age.value;
@@ -36,7 +36,7 @@ form.addEventListener('submit', (e) => {
 });
 ```
 
-_index.js_ (Method 1 - recommended)
+_index.js_ (Method 1 - best recommended)
 
 ```js
 const form = document.querySelector('form');
@@ -77,7 +77,7 @@ form.addEventListener('submit', (e) => {
 });
 ```
 
-_index.js_ (Method 3)
+_index.js_ (Method 3 - not so good)
 
 ```js
 const form = document.querySelector('form');
@@ -89,6 +89,25 @@ form.addEventListener('submit', (e) => {
 
   Object.entries(form.children).forEach((child) => {
     data[child.name] = child.value;
+  });
+  console.log(data);
+});
+```
+
+_index.js_ (Method 4)
+
+```js
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const data = {};
+
+  //values targets the children of form element
+  Object.values(e.target).forEach((elem) => {
+    if (elem.type !== 'submit') {
+      data[elem.name] = data[elem.value];
+    }
   });
   console.log(data);
 });

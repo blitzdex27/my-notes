@@ -1,0 +1,47 @@
+```css
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #6ca5e6;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: yellowgreen;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: yellow;
+}
+
+/* Buttons */
+::-webkit-scrollbar-button:single-button {
+  background-color: #6ca5e6;
+  display: block;
+  border-style: solid;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+}
+
+::-webkit-scrollbar-button:single-button:hover {
+  background-color: yellow;
+}
+
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0;
+  /* border-color: transparent transparent #555555 transparent; */
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  /* border-color: yellow yellow yellow yellow; */
+}
+```
