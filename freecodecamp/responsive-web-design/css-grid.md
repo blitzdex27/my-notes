@@ -99,12 +99,16 @@
   - When the container changes size, this setup keeps inserting 60px columns and stretching them until it can insert another one. Note: If your container can't fit all your items on one row, it will move them down to a new one.
 
 - Create Flexible Layouts Using `auto-fit`
+
   - `auto-fit` works almost identically to `auto-fill`
   - The only difference is that when the container's size exceeds the size of all the items combined, auto-fill keeps inserting empty rows or columns and pushes your items to the side, while auto-fit collapses those empty rows or columns and stretches your items to fit the size of the container.
   - Note: If your container can't fit all your items on one row, it will move them down to a new one.
 
 - Use Media Queries to Create Responsive Layouts
-    - CSS Grid can be an easy way to make your site more responsive by using media queries to rearrange grid areas, change dimensions of a grid, and rearrange the placement of items.
+  - CSS Grid can be an easy way to make your site more responsive by using media queries to rearrange grid areas, change dimensions of a grid, and rearrange the placement of items.
 - Create Grids within Grids
-    - Turning an element into a grid only affects the behavior of its direct descendants. So by turning a direct descendant into a grid, you have a grid within a grid.
-    
+
+  - Turning an element into a grid only affects the behavior of its direct descendants. So by turning a direct descendant into a grid, you have a grid within a grid.
+
+- `box-sizing: border-box;`
+  - makes the grid container be prevented from overlapping the viewport width/height whenever we add padding/margin
