@@ -38,3 +38,4 @@
 
 - if the load includes JavaScript that is correctly deferred, and only executed after the onload event fires,
 - the page won't be responsive until the script has been executed completely
+- Time to Interactive (TTI) is the measurement of how long from the time that the first request which led to DNS look up and SSL connection to when the page is interactive
