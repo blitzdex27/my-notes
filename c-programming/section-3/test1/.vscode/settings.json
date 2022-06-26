@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.c": "c"
+  },
+  "terminal.integrated.defaultProfile.windows": "Cygwin"
+}
