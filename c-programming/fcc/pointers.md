@@ -34,3 +34,38 @@ int main () {
     return 0;
 }
 ```
+
+## Pointers
+
+Pointers are variables that store address of other variables
+
+### Declaring pointers
+
+```c
+int a; // integer
+int *b; // pointer for integer
+char c; // character
+char *d; // pointer for character
+double e; // double
+double *f; // pointer for double
+```
+
+### Extracting memory address
+
+Put an `&` ampersand before the variable
+
+```c
+int *b = &a;
+```
+
+### Extracting value from adress
+
+Put an `*` asterisk before the address data type
+
+```c
+
+int value = *&a; // &a returns an address
+int value2 = *b; // b is an address
+// value == value2
+
+```
