@@ -61,3 +61,29 @@ Library (`string.h`)
     - `isblank()` - standard blank characters (space, '\t')
     - `isspace()` - whitespace character (space, '\n', '\t', '\r', '\f')
     - `ispunct()` - printing character for which `isspace()` and `isalnum()` return `false`
+- `toupper` and `tolower`
+    - converts strings into upper or lowercase
+- converting strings to numbers (`stdlib.h` exclusive)
+    - leading space are ignored
+    - `atof()`
+        - string to double
+        - "INF" or "INFINITY" is recognized, not case sensitive
+        - "NAN" or not a number is recognized, not case sensitive
+    - `atoi()`
+        - string to int
+    - `atol()`
+        - string to long
+    - `atoll()`
+        - string to long long
+    - `strtod(char str[], double *varToStore)`
+        - returns a double from string
+        - searches the string for a valid double
+        - if no string valid for double was found, the varToStore will contain the address passed as the first argument
+        - arg2 is a pointer to store the resulting double
+    - `strtof(char str[], float *varToStore)`
+        - string to float
+        - works like `strtod`
+    - `strtold()` 
+        - string to long double
+        - works like `strtod`
+
