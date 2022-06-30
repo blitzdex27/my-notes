@@ -1,0 +1,63 @@
+# String Functions
+
+Library (`string.h`)
+- `strlen`
+    - `int strlen(char str[])`
+    - returns the length of string
+- `strcpy` and `strncpy`
+    - `void strcpy(char destStr[], char srcStr[])`
+    - `void strncpy(destination, src, [size limit])`
+    - copying one character string to another; does not check if it will fit
+- `strcat` and `strncat`
+    - `char strcat(char str1[], char str2[])`
+    - `strncat(char str1[], char str2[], int size)[]`
+    - combining two character strings together (concatenation)
+    - returns the concatenation result of str1 and str2
+
+- `strcmp` and `strncmp` 
+    - `int strcmp(char str1[], char str2[])`
+    - `int strncmp(char str1[], char str2[], int size)` 
+    - determine if two character strings are equal
+    - return `0` if strings are the same and nonzero
+    - return `-1` if str1 < str2
+    - return `1` if str1 > str1
+
+- `strchr` and `strstr`
+    - search single character and substring respectively
+    - `char *strchr(char *str || char str[], int myChar)`
+        - searches a string for the first occurence of the character
+        - arg1 is the address of string to be searched e.g. &str1
+        - arg2 is the character to be searched
+        - returns the address where the character was found
+        - return value is ot type `char *`, or simply char pointer
+        - returns `NULL` if character is not found
+        - note: strchr expects arg2 to be int, and it converts char into int internally. you can put an int there instead e.g. int myChar = 'q'
+    - `char *strstr(char str[], char subStr[])`
+        - searches a string for the first occurence of a substring
+        - arg1 is a string to be searched on
+        - arg2 is a string to search
+        - returns a pointer to the position where the substring is found
+        - returns `NULL` if have no match
+- `strtok`
+    - breaks sentense into words
+    - a `token` is a sequence of characters within a string that is bounded by a delimeter (space, comma, period, etc.)
+    - `char *strtok(char strTarget[], char delimiters[])`
+        - arg1 is a string to be tokenized
+        - arg2 is a string containing all possible delimiter characters
+
+- `islower`, `isupper`, `isdigit`, etc.
+    - `int islower(char urChar)`
+    - argument is the character to be tested
+    - returns a nonzero value of type int
+    - `islower()`- lowercase letter
+    - `isuppper()` - uppercase letter
+    - `isalpha()` - uppercase or lowercase letter
+    - `isalnum()` - uppercase or lowercase letter or a digit
+    - `iscntrl()` - control character
+    - `isprint()` - any printing character including space
+    - `isgraph()` - any printing character expect space
+    - `isdigit()` - decimal digit ('0' to '9')
+    - `isxdigit()` - hexadecimal digit ('0' to '9', 'A' to 'F', 'a' to 'f')
+    - `isblank()` - standard blank characters (space, '\t')
+    - `isspace()` - whitespace character (space, '\n', '\t', '\r', '\f')
+    - `ispunct()` - printing character for which `isspace()` and `isalnum()` return `false`
