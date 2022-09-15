@@ -6,7 +6,7 @@
         - salary (float)
     - declare and initialize an instance of an employee type
     - read in a second employee from the console and store it in a structure of type employee
-    - print out the contents of each employee
+    - print out the contents of each employeegbVvhp_fBzosFSAcielra1xEN2D57OGcoMSsgv2z0cIrD7
 
 */
 
